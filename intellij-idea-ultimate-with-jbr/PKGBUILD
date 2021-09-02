@@ -1,6 +1,6 @@
 # Maintainer: RichieMay
 
-pkgname=intellij-idea-ultimate
+pkgname=intellij-idea-ultimate-with-jbr
 pkgver=2021.2.1
 pkgrel=1
 pkgdesc="Intellij Idea Ultimate"
