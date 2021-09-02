@@ -1,7 +1,7 @@
 # Maintainer: RichieMay
 
 pkgname=intellij-idea-ultimate
-pkgver=2021.1.3
+pkgver=2021.2.1
 pkgrel=1
 pkgdesc="Intellij Idea Ultimate"
 arch=(x86_64)
@@ -14,7 +14,7 @@ source=(
     "intellij-idea-ultimate.desktop")
 
 sha256sums=(
-    '39be57e086f2dcb489d3eb1ba0e8e88db0ab242f4e5e29e0e7985d2caef894aa'
+    '4bbd3966c79c9e3d871d7b82668d6685f93deb143b675bca7ce4755b193777e4'
     'a8a31e45e8abed10f71c3e948064fe7258dc9cb3d60d6f48de7b009b05625f88')
 
 
