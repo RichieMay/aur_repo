@@ -21,14 +21,15 @@ sha256sums=(
 )
 
 prepare() {
-    mkdir $srcdir/glib2
-    tar --zstd -xpf $srcdir/glib2-2.68.4-1-x86_64.pkg.tar.zst -C $srcdir/glib2
-
     chmod +x "navicat15-premium-cs-${pkgver}.AppImage"
     ./"navicat15-premium-cs-${pkgver}.AppImage" --appimage-extract
     chmod -R 0755 squashfs-root
     mv squashfs-root/* ./
     rm -rf squashfs-root
+
+    # patch libgio
+    mkdir $srcdir/glib2
+    tar --zstd -xpf $srcdir/glib2-2.68.4-1-x86_64.pkg.tar.zst -C $srcdir/glib2
 }
 
 package() {
@@ -49,6 +50,6 @@ package() {
     install -d $pkgdir/$_icon_dir
     ln -s /$_root_na_dir/$_icon_dir/navicat-icon.png $pkgdir/$_icon_dir/navicat15.png
 
-        # fix "symbol lookup error: /usr/lib/libgio-2.0.so.0: undefined symbol: g_module_open_full"
+    # fix "symbol lookup error: /usr/lib/libgio-2.0.so.0: undefined symbol: g_module_open_full"
     cp glib2/usr/lib/libgio-2.0.so.0.6800.4 $_na_dir/usr/lib/libgio-2.0.so.0
 }
