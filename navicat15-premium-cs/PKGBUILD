@@ -1,24 +1,29 @@
 # Maintainer: RichieMay
 
 pkgname=navicat15-premium-cs
-pkgver=15.0.21
+pkgver=15.0.29
 pkgrel=1
 pkgdesc="Navicat Premium is a multi-connection database development tool. (Chinese Simplified)"
 arch=(x86_64)
 options=(!strip)
-url='https://rlds.tk/index_zh.html'
+url='https://www.navicat.com/en/navicat-15-highlights'
 license=('GPL3')
 source=(
     # The download url always download latest version
-    "navicat15-premium-cs-${pkgver}.AppImage::https://pan.rainss.cc/navicat/${pkgver}/Navicat_Premium_15_cs-x86_64.appimage"
+    "navicat15-premium-cs-${pkgver}.AppImage::http://richiemay.ga/patched/navicat15-premium-cs-${pkgver}.AppImage"
+    'https://archive.archlinux.org/packages/g/glib2/glib2-2.68.4-1-x86_64.pkg.tar.zst'
     'navicat15.desktop'
 )
 sha256sums=(
-    '65b97d85b024b343864e0bd535dda6198d872df0d6253a646e9d05160a1a6d6b'
-    '6477d39b5c6247a6e5769fb65ac99504ba602170794f5610a1e301cd0832032e'
+    'd47e2636cf847b1d6c99e6bb5dace260e7ef4f7f6b815fb2cf4331aee5415e20'
+    'e8e759bd9abb58c93067e199088077f3d6fa2c608ebc6f571cb9dd814812bcea'
+    '67c2a775e4b7d510596af036caa4938b6d0fac54e6df5a7c43ca909e0322f13e'
 )
 
 prepare() {
+    mkdir $srcdir/glib2
+    tar --zstd -xpf $srcdir/glib2-2.68.4-1-x86_64.pkg.tar.zst -C $srcdir/glib2
+
     chmod +x "navicat15-premium-cs-${pkgver}.AppImage"
     ./"navicat15-premium-cs-${pkgver}.AppImage" --appimage-extract
     chmod -R 0755 squashfs-root
@@ -43,4 +48,7 @@ package() {
     _icon_dir=usr/share/icons/hicolor/256x256/apps
     install -d $pkgdir/$_icon_dir
     ln -s /$_root_na_dir/$_icon_dir/navicat-icon.png $pkgdir/$_icon_dir/navicat15.png
+
+        # fix "symbol lookup error: /usr/lib/libgio-2.0.so.0: undefined symbol: g_module_open_full"
+    cp glib2/usr/lib/libgio-2.0.so.0.6800.4 $_na_dir/usr/lib/libgio-2.0.so.0
 }
