@@ -24,8 +24,8 @@ prepare() {
     chmod +x "navicat15-premium-cs-${pkgver}.AppImage"
     ./"navicat15-premium-cs-${pkgver}.AppImage" --appimage-extract
     chmod -R 0755 squashfs-root
-    mv squashfs-root/* ./
-    rm -rf squashfs-root
+    cd squashfs-root && cp -r * ../
+    cd .. && rm -rf squashfs-root
 
     # patch libgio
     mkdir $srcdir/glib2
