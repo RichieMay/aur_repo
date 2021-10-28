@@ -20,7 +20,7 @@ sed -i "/pkgver=/c\pkgver=${version}" PKGBUILD
 sed -i "0,/'[0-9a-z]\{64\}'/s/'[0-9a-z]\{64\}'/'${idea_jbr_sha256}'/g" PKGBUILD
 makepkg --printsrcinfo > .SRCINFO
 
-git commit -m "update to ${version}"
+git commit -am "update to ${version}"
 git push
 
 echo -e "update intellij-idea-ultimate-no-jbr, sha256sum: ${idea_no_jbr_sha256}\n"
@@ -29,5 +29,5 @@ sed -i "/pkgver=/c\pkgver=${version}" PKGBUILD
 sed -i "0,/'[0-9a-z]\{64\}'/s/'[0-9a-z]\{64\}'/'${idea_no_jbr_sha256}'/g" PKGBUILD
 makepkg --printsrcinfo > .SRCINFO
 
-git commit -m "update to ${version}"
+git commit -am "update to ${version}"
 git push
