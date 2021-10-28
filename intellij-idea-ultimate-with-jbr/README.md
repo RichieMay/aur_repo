@@ -1,1 +1,1 @@
-# intellij-idea-ultimate-jbr
+# intellij-idea-ultimate-with-jbr
