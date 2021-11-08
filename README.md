@@ -4,3 +4,6 @@
 
 
 2、makepkg --install
+
+
+3、makepkg --clean
