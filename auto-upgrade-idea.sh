@@ -26,5 +26,5 @@ sed -i "/pkgver=/c\pkgver=${version}" PKGBUILD
 sed -i "0,/'[0-9a-z]\{64\}'/s/'[0-9a-z]\{64\}'/'${idea_no_jbr_sha256}'/g" PKGBUILD
 makepkg --printsrcinfo > .SRCINFO
 
-git commit -am "update to ${version}"
+git commit -am "update idea version: ${version}"
 git push
