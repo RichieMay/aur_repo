@@ -1,7 +1,7 @@
 # Maintainer: RichieMay
 
 pkgname=navicat15-premium-cs
-pkgver=15.0.29
+pkgver=15.0.30
 pkgrel=1
 pkgdesc="Navicat Premium is a multi-connection database development tool. (Chinese Simplified)"
 arch=(x86_64)
@@ -10,12 +10,12 @@ url='https://www.navicat.com/en/navicat-15-highlights'
 license=('GPL3')
 source=(
     # The download url always download latest version
-    "navicat15-premium-cs-${pkgver}.AppImage::http://richiemay.ga/patched/navicat15-premium-cs-${pkgver}.AppImage"
+    "navicat15-premium-cs-${pkgver}.AppImage::http://richiemay.ga/patched/navicat15-premium-cs-${pkgver}-patched.AppImage"
     'https://archive.archlinux.org/packages/g/glib2/glib2-2.68.4-1-x86_64.pkg.tar.zst'
     'navicat15.desktop'
 )
 sha256sums=(
-    'd47e2636cf847b1d6c99e6bb5dace260e7ef4f7f6b815fb2cf4331aee5415e20'
+    '2dcf2656a3586e52fee633baca306bda9f4903af946b7d07eb8d9b3fac45eaa5'
     'e8e759bd9abb58c93067e199088077f3d6fa2c608ebc6f571cb9dd814812bcea'
     '67c2a775e4b7d510596af036caa4938b6d0fac54e6df5a7c43ca909e0322f13e'
 )
