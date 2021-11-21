@@ -11,7 +11,7 @@ license=('GPL3')
 depends=('ca-certificates' 'gtk3' 'libcups' 'nss' 'alsa-lib' 'libxss' 'libxtst' 'ttf-liberation')
 source=("microsoft-edge-stable_${pkgver}-${pkgrel}_amd64.deb::https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_${pkgver}-${pkgrel}_amd64.deb")
 
-sha256sums=('dadb1ab841f49b660d4fb9dc764900766ed1ffa6d3bd56f3c9d2e4a3dc6097f9')
+sha256sums=('97e51b22b7d9807a7a92d190ef38794394864b1520098a20c4f8847ee3089764')
 
 package() {
     cd ${srcdir}
