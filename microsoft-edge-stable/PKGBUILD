@@ -1,7 +1,7 @@
 # Maintainer: RichieMay
 
 pkgname=microsoft-edge-stable
-pkgver=95.0.1020.44
+pkgver=95.0.1020.53
 pkgrel=1
 pkgdesc="Microsoft Edge Web Browser"
 arch=(x86_64)
