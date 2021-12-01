@@ -1,7 +1,7 @@
 # Maintainer: RichieMay
 
 pkgname=microsoft-edge-stable
-pkgver=96.0.1054.34
+pkgver=96.0.1054.41
 pkgrel=1
 pkgdesc="Microsoft Edge Web Browser"
 arch=(x86_64)
@@ -11,7 +11,7 @@ license=('GPL3')
 depends=('ca-certificates' 'gtk3' 'libcups' 'nss' 'alsa-lib' 'libxss' 'libxtst' 'ttf-liberation')
 source=("microsoft-edge-stable_${pkgver}-${pkgrel}_amd64.deb::https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_${pkgver}-${pkgrel}_amd64.deb")
 
-sha256sums=('2877152fc9468c64fc512bbd76488d68f864a6e3f63ec1ef078e60b0bcedc8eb')
+sha256sums=('2f749fdba1dd9b449c6efdf8ff802c036334a5f597419ca1a7b852c3c46a266c')
 
 package() {
     cd ${srcdir}
