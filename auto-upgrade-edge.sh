@@ -1,6 +1,11 @@
 #!/bin/env sh
 
 version=`curl -sL "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/"|grep -Eo "([0-9]+\.)+[0-9]+"|sort -V|tail -n 1`
+if [ "$1" = "--version" ]; then
+    echo -e "\nthe latest edge version is: ${version}\n"
+    exit 0
+fi
+
 curl -o "microsoft-edge-stable_${version}-1_amd64.deb" "https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_${version}-1_amd64.deb"
 
 echo -e "the latest edge version is: ${version}\n"

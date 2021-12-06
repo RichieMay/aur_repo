@@ -2,6 +2,11 @@
 json=`curl -sL "https://data.services.jetbrains.com/products/releases?code=IIU&latest=true&type=release&build=" | jq '.IIU[0]'`
 
 version=`echo $json | jq -r '.version'`
+if [ "$1" = "--version" ]; then
+    echo -e "\nthe latest idea version is: ${version}\n"
+    exit 0
+fi
+
 idea_jbr_sha256_url=`echo $json | jq -r '.downloads.linux.checksumLink'`
 idea_no_jbr_sha256_url=`echo $json | jq -r '.downloads.linuxWithoutJBR.checksumLink'`
 
