@@ -11,12 +11,10 @@ license=('GPL3')
 source=(
     # The download url always download latest version
     "navicat15-premium-cs-${pkgver}.AppImage::http://richiemay.ga/patched/navicat15-premium-cs-${pkgver}-patched.AppImage"
-    'https://archive.archlinux.org/packages/g/glib2/glib2-2.68.4-1-x86_64.pkg.tar.zst'
     'navicat15.desktop'
 )
 sha256sums=(
     '2dcf2656a3586e52fee633baca306bda9f4903af946b7d07eb8d9b3fac45eaa5'
-    'e8e759bd9abb58c93067e199088077f3d6fa2c608ebc6f571cb9dd814812bcea'
     '67c2a775e4b7d510596af036caa4938b6d0fac54e6df5a7c43ca909e0322f13e'
 )
 
@@ -26,10 +24,6 @@ prepare() {
     chmod -R 0755 squashfs-root
     cd squashfs-root && cp -r * ../
     cd .. && rm -rf squashfs-root
-
-    # patch libgio
-    mkdir $srcdir/glib2
-    tar --zstd -xpf $srcdir/glib2-2.68.4-1-x86_64.pkg.tar.zst -C $srcdir/glib2
 }
 
 package() {
@@ -49,7 +43,4 @@ package() {
     _icon_dir=usr/share/icons/hicolor/256x256/apps
     install -d $pkgdir/$_icon_dir
     ln -s /$_root_na_dir/$_icon_dir/navicat-icon.png $pkgdir/$_icon_dir/navicat15.png
-
-    # fix "symbol lookup error: /usr/lib/libgio-2.0.so.0: undefined symbol: g_module_open_full"
-    cp glib2/usr/lib/libgio-2.0.so.0.6800.4 $_na_dir/usr/lib/libgio-2.0.so.0
 }
