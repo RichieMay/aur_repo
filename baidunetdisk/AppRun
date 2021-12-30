@@ -1,0 +1,2 @@
+#!/bin/sh
+LD_PRELOAD="/opt/baidunetdisk/libbrowserengine.so:/opt/baidunetdisk/libkernel.so:/opt/baidunetdisk/libminosagent.so:/opt/baidunetdisk/libplayer.so:/opt/baidunetdisk/libffmpeg.so" exec /opt/baidunetdisk/electron /opt/baidunetdisk/resources/app.asar "$@"

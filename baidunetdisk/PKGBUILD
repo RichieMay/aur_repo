@@ -1,0 +1,37 @@
+# Maintainer: RichieMay
+
+pkgname=baidunetdisk
+pkgver=4.3.0
+pkgrel=1
+pkgdesc="Baidu Net Disk - a cloud storage client (Linux Version)."
+arch=(x86_64)
+options=(!strip)
+url='https://pan.baidu.com'
+license=('GPL3')
+source=(
+    # The download url always download latest version
+    "electron-linux-x64.zip::https://github.com/electron/electron/releases/download/v9.4.4/electron-v9.4.4-linux-x64.zip"
+    "baidunetdisk_${pkgver}_amd64.deb::http://wppkg.baidupcs.com/issue/netdisk/Linuxguanjia/${pkgver}/baidunetdisk_${pkgver}_amd64.deb"
+    'AppRun'
+)
+sha256sums=(
+    '781d6ca834d415c71078e1c2c198faba926d6fce19e31448bbf4450869135450'
+    '43aa0ad4ef8fe17fa62592a366bd955984d71e56320b5a7b3ab2aee0b49be5e6'
+    '1ca3a0457cf777a30bd116d81767e8efc88484228fa30047d1f2a5ab913604ee'
+)
+
+
+package() {
+    cd ${srcdir}
+
+    tar -xJvf data.tar.xz -C "${pkgdir}"
+
+    unzip -o electron-linux-x64.zip -d "${pkgdir}/opt/baidunetdisk"
+
+    sed -i "/Name=/c\Name=百度网盘"  "${pkgdir}/usr/share/applications/baidunetdisk.desktop"
+    sed -i "/Exec=/c\Exec=/opt/baidunetdisk/AppRun --no-sandbox %U"  "${pkgdir}/usr/share/applications/baidunetdisk.desktop"
+
+    cp "$srcdir/AppRun" "${pkgdir}/opt/baidunetdisk"
+
+    chmod +x "${pkgdir}/opt/baidunetdisk/AppRun"
+}
