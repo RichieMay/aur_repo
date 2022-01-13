@@ -1,6 +1,6 @@
 pkgbase = microsoft-edge-stable
 	pkgdesc = Microsoft Edge Web Browser
-	pkgver = 96.0.1054.62
+	pkgver = 97.0.1072.55
 	pkgrel = 1
 	url = https://www.microsoft.com/edge/
 	arch = x86_64
@@ -14,7 +14,7 @@ pkgbase = microsoft-edge-stable
 	depends = libxtst
 	depends = ttf-liberation
 	options = !strip
-	source = microsoft-edge-stable_96.0.1054.62-1_amd64.deb::https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_96.0.1054.62-1_amd64.deb
-	sha256sums = ad34c76b232ce0bd4960025a1875651f916eb3814d89f385573973d0c91473e3
+	source = microsoft-edge-stable_97.0.1072.55-1_amd64.deb::https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_97.0.1072.55-1_amd64.deb
+	sha256sums = b510a5799ce23a7ff509750918120ac96b2bf3500c7d81172d57b996e41c4ee9
 
 pkgname = microsoft-edge-stable
