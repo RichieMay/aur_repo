@@ -11,7 +11,11 @@ pkgbase = intellij-idea-ultimate-with-jbr
 	options = !strip
 	source = ideaIU-2021.3.tar.gz::https://download.jetbrains.com/idea/ideaIU-2021.3.tar.gz
 	source = intellij-idea-ultimate.desktop
+	source = ActivationCode.txt
+	source = FineAgent.jar
 	sha256sums = 429838940b2312ea15f12a2c2e7a1bdd65a885df96fec6270c91856c012294fe
 	sha256sums = a8a31e45e8abed10f71c3e948064fe7258dc9cb3d60d6f48de7b009b05625f88
+	sha256sums = 105a542f0e0614b652ab6b53e9e7693969916f2172fc31dfba1b37f920a8bbe6
+	sha256sums = 6c32e36008a8dd0a0cd196f16630d7cb6b1bb12a70dc50826656e047e648ef4b
 
 pkgname = intellij-idea-ultimate-with-jbr
