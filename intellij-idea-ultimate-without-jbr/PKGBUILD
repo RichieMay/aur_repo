@@ -14,12 +14,16 @@ conflicts=('intellij-idea-ultimate-with-jbr' 'intellij-idea-ultimate-edition' 'i
 source=(
     # The download url
     "ideaIU-${pkgver}-no-jbr.tar.gz::https://download.jetbrains.com/idea/ideaIU-${pkgver}-no-jbr.tar.gz"
-    "intellij-idea-ultimate.desktop")
+    "intellij-idea-ultimate.desktop"
+    "ActivationCode.txt"
+    "FineAgent.jar")
 
 sha256sums=(
     # https://download.jetbrains.com/idea/ideaIU-${pkgver}-no-jbr.tar.gz.sha256
     '0b46ebb2381bd587bbec9d15ff78f11380bcf2654c0716c0caf747550ee73c66'
-    'a8a31e45e8abed10f71c3e948064fe7258dc9cb3d60d6f48de7b009b05625f88')
+    'a8a31e45e8abed10f71c3e948064fe7258dc9cb3d60d6f48de7b009b05625f88'
+    '105a542f0e0614b652ab6b53e9e7693969916f2172fc31dfba1b37f920a8bbe6'
+    '6c32e36008a8dd0a0cd196f16630d7cb6b1bb12a70dc50826656e047e648ef4b')
 
 
 package() {
@@ -36,5 +40,12 @@ package() {
     ln -s "$_host_install_dir/bin/idea.sh" "$_pkg_bin_dir/idea"
     ln -s "$_host_install_dir/bin/idea.png" "$_pkg_png_dir/idea.png"
     ln -s "$_host_install_dir/bin/idea.svg" "$_pkg_svg_dir/idea.svg"
+
+    cp "$srcdir/FineAgent.jar" "$_pkg_install_dir/bin"
+    cp "$srcdir/ActivationCode.txt" "$_pkg_install_dir/bin"
     cp "$srcdir/intellij-idea-ultimate.desktop" "$_pkg_desktop_dir"
+
+    echo "-javaagent:$_host_install_dir/bin/FineAgent.jar" >> "$_pkg_install_dir/bin/idea64.vmoptions"
+
+    echo -e "Input Idea ActivationCode:\n$(<$srcdir/ActivationCode.txt)"
 }
